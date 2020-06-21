@@ -1,17 +1,11 @@
-import socket
-import sys
-mysock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-try:
-    mysock.bind("",80)
-except socket.error:
-    print("Failed to connect")
-    sys.exit()
-mysock.listen(5)
-while True:
-    conn,addr=mysock.accept()
-    data=conn.recv(1000)
-    if not data:
-        break
-    conn.sendall(data)
-conn.close()
-mysock.close()
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12,GPIO.OUT)
+pwm=GPIO.PWM(12,50)
+pwm.start(0)
+foreach i in range(100):
+    pwm.ChangeDutyCycle(i)
+    time.sleep(0.1)
+foreach i in range(100,0,-1):
+    pwm.ChangeDutyCycle(i)
+    time.sleep(0.1)
