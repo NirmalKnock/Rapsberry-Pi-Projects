@@ -1,6 +1,7 @@
 import socket
 import sys
 mysock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
 try:
     mysock.bind("",80)
 except socket.error:
