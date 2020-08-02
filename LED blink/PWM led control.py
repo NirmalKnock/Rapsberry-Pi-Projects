@@ -12,4 +12,6 @@ while True:
 	time.sleep(3)
 	pwm_obj.ChangeDutyCycle(30)
 	time.sleep(3)
+	pwm_obj.ChangeDutyCycle(80)
+	time.sleep(4)
 
